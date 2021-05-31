@@ -16,7 +16,7 @@ const getData = () => {
                 // console.log(state);
                 let cardMain = document.querySelector('#card-list');
                 let cardStateData = `       
-                    <div class="card-list" style="width: 18rem;">
+                    <div id="cardStateData" class="card-list" style="width: 18rem;">
                         <div class="card-header stateName-text">
                             ${state.state}
                         </div>
@@ -41,20 +41,28 @@ const getData = () => {
         })
 }
 getData();
-},{"./search":2,"./sort":3,"axios":4,"jquery":31,"moment":32}],2:[function(require,module,exports){
-const search = () => {
-    console.log('Search.js --> attached');
-}
-
 search();
+sort();
+},{"./search":2,"./sort":3,"axios":4,"jquery":31,"moment":32}],2:[function(require,module,exports){
+console.log('Search.js --> attached');
+const search = () => {
+    document.querySelector("#searchState").addEventListener("input", function () {
+        let searchValue= this.value.toUpperCase();
+        for (i = 0; i < document.querySelectorAll(".stateName-text").length; i++) {
+            if(document.querySelectorAll(".stateName-text")[i].innerText.toUpperCase().indexOf(searchValue) > -1) {
+                document.querySelectorAll("#cardStateData")[i].style.display = "";
+            } else {
+                document.querySelectorAll("#cardStateData")[i].style.display = "none";
+            }
+        }
+    })
+}
 
 module.exports = search;
 },{}],3:[function(require,module,exports){
 const sort = () => {
     console.log('Sort.js --> attached');
 }
-
-sort();
 
 module.exports = sort;
 },{}],4:[function(require,module,exports){

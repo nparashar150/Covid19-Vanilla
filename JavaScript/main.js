@@ -15,7 +15,7 @@ const getData = () => {
                 // console.log(state);
                 let cardMain = document.querySelector('#card-list');
                 let cardStateData = `       
-                    <div class="card-list" style="width: 18rem;">
+                    <div id="cardStateData" class="card-list" style="width: 18rem;">
                         <div class="card-header stateName-text">
                             ${state.state}
                         </div>
@@ -40,3 +40,5 @@ const getData = () => {
         })
 }
 getData();
+search();
+sort();
