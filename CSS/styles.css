@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400&display=swap');
+
+:root {
+    --background: #17202A;
+    --background-secondary: #1C2833;
+    --color: #BFC9CA;
+    --color-data: #D5DBDB;
+    --card-bg: #283747;
+    --card-bg-secondary: #2E4053;
+}
+
+body {
+    background: var(--background);
+}
+
+.fixed-nav {
+    width: 100vw;
+    height: 7vh;
+    background: var(--background-secondary);
+    display: flex;
+    align-items: center;
+    border-radius: 2vw;
+}
+
+.fixed-nav a,
+.fixed-nav a:focus,
+.fixed-nav a:hover {
+    font-family: 'Nunito Sans', sans-serif;
+    text-decoration: none;
+    color: var(--color);
+    font-size: 1.5vw;
+}
+
+.live {
+    animation: 1s infinite ease-in-out grow;
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+    } 
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);   
+    }
+}
+
+.card-list {
+    text-align: center;
+    border-radius: 1vw;
+    background: var(--card-bg);
+    color: var(--color);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.activeCases,
+.recovered,
+.deaths,
+.totalCases {
+    padding-left: 2.5vw;
+    text-align: left;
+    font-size: .90em;
+    color: var(--color-data);
+    background: var(--card-bg-secondary);
+}
+
+#card-list .card-list {
+    margin: 2vw 2vw;
+    justify-content: center;
+}
