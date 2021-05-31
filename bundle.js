@@ -5,7 +5,7 @@ const moment = require('moment');
 const date = new Date();
 console.log("Today is " + moment(date).format('LL'));
 console.log("Main.js --> attached");
-const button = require('./search');
+const search = require('./search');
 const sort = require('./sort');
 
 const getData = () => {

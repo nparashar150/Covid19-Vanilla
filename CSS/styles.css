@@ -101,3 +101,27 @@ body {
     margin: 2vw 2vw;
     justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .fixed-nav {
+        height: 10vw;
+        border-radius: 5vw;
+        width: 95vw;
+        margin-bottom: 2vw;
+    }
+    .fixed-nav a:nth-of-type(1) {
+        display: none;
+    }
+    .fixed-nav a:nth-of-type(3) {
+        margin-right: 3vw;
+    }    
+    .fixed-nav a,
+    .fixed-nav a:hover,
+    .fixed-nav a:focus {
+            font-size: 5vw;
+            animation: none;
+    }
+    .card-list {
+        border-radius: 5vw;
+    }
+}
