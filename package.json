@@ -1,14 +1,17 @@
 {
+  "homepage": "https://github.com/nparashar150/Covid19-Vanialla",
   "name": "covid-19-vanilla",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bundle.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "browserify JavaScript/main.js -o bundle.js",
     "watch": "watchify JavaScript/main.js -o bundle.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Naman Parashar",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
@@ -19,6 +22,7 @@
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
+    "gh-pages": "^3.2.0",
     "watchify": "^4.0.0"
   }
 }
