@@ -4,6 +4,8 @@ Note: Run npm install after clone
 <br>
 <br>
 
+This fetches the Covid Data from [data.json](https://api.covid19india.org/data.json)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/70a13680-ad46-4522-9c5d-40ef5b379322/deploy-status)](https://app.netlify.com/sites/covid19-api-vanilla/deploys)
 
 ### Live Example
