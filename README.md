@@ -1,12 +1,16 @@
 ## Covid19 Live tracker
 <br>
-Note: Run npm install after clone
+Note: Run npm install after clone Click the Netlify Badge to redirect to website.
 <br>
 <br>
+
+[![Netlify Website Link](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://covid19-api-vanilla.netlify.app/)
 
 This fetches the Covid Data from [data.json](https://api.covid19india.org/data.json)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/70a13680-ad46-4522-9c5d-40ef5b379322/deploy-status)](https://app.netlify.com/sites/covid19-api-vanilla/deploys)
+
+<br>
 
 ### Live Example
 
