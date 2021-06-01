@@ -89,7 +89,8 @@ body {
 .activeCases,
 .recovered,
 .deaths,
-.totalCases {
+.totalCases,
+.lastUpdated {
     padding-left: 2.5vw;
     text-align: left;
     font-size: .90em;
