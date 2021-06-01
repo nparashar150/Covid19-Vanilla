@@ -1,20 +1,20 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const $ = require("jquery");
-const axios = require('axios').default;
-const moment = require('moment');
+const axios = require("axios").default;
+const moment = require("moment");
 const date = new Date();
-console.log("Today is " + moment(date).format('LL'));
+console.log("Today is " + moment(date).format("LL"));
 console.log("Main.js --> attached");
-const search = require('./search');
-const sort = require('./sort');
+const search = require("./search");
+const sort = require("./sort");
 
 const getData = () => {
-    axios.get('https://api.covid19india.org/data.json')
+    axios.get("https://api.covid19india.org/data.json")
         .then(function (response) {
             // Function which runs on Resolve
             response.data.statewise.forEach(state => {
                 // console.log(state);
-                let cardMain = document.querySelector('#card-list');
+                let cardMain = document.querySelector("#card-list");
                 let cardStateData = `       
                     <div id="cardStateData" class="card-list" style="width: 18rem;">
                         <div class="card-header stateName-text">
@@ -25,6 +25,7 @@ const getData = () => {
                             <li class="list-group-item recovered">Recovered: ${state.recovered}</li>
                             <li class="list-group-item deaths">Deaths: ${state.deaths}</li>
                             <li class="list-group-item totalCases">Total: ${state.confirmed}</li>
+                            <li class="list-group-item lastUpdated">Updated: ${state.lastupdatedtime}</li>
                         </ul>
                     </div>`
 
@@ -44,7 +45,7 @@ getData();
 search();
 sort();
 },{"./search":2,"./sort":3,"axios":4,"jquery":31,"moment":32}],2:[function(require,module,exports){
-console.log('Search.js --> attached');
+console.log("Search.js --> attached");
 const search = () => {
     document.querySelector("#searchState").addEventListener("input", function () {
         let searchValue= this.value.toUpperCase();

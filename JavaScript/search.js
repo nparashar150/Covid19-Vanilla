@@ -1,4 +1,4 @@
-console.log('Search.js --> attached');
+console.log("Search.js --> attached");
 const search = () => {
     document.querySelector("#searchState").addEventListener("input", function () {
         let searchValue= this.value.toUpperCase();

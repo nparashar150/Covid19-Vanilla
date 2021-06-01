@@ -89,7 +89,8 @@ body {
 .activeCases,
 .recovered,
 .deaths,
-.totalCases {
+.totalCases,
+.lastUpdated {
     padding-left: 2.5vw;
     text-align: left;
     font-size: .90em;
@@ -100,6 +101,22 @@ body {
 #card-list .card-list {
     margin: 2vw 2vw;
     justify-content: center;
+}
+
+
+#searchState {
+    width: 25vw;
+    height: 7vh;
+    background: var(--background-secondary);
+    padding: 0 1vw;
+    outline: none;
+    border: none;
+    margin-top: 1.9vw;
+    color: var(--color-data);
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.25vw;
+    border-radius: 2vw;
+    filter: drop-shadow(0 0 5px var(--black));
 }
 
 @media only screen and (max-width: 600px) {
@@ -123,5 +140,16 @@ body {
     }
     .card-list {
         border-radius: 5vw;
+    }
+    
+    #searchState {
+        justify-self: center;
+        width: 90vw;
+        height: 5vh;
+        padding: 0 5vw;
+        margin-top: 0.5vw;
+        font-size: 4vw;
+        border-radius: 5vw;
+        filter: drop-shadow(0 0 5px var(--black));
     }
 }
