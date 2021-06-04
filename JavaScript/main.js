@@ -2,6 +2,7 @@ const $ = require("jquery");
 const axios = require("axios").default;
 const moment = require("moment");
 const date = new Date();
+const HRNumbers = require("human-readable-numbers");
 console.log("Today is " + moment(date).format("LL"));
 console.log("Main.js --> attached");
 const search = require("./search");
@@ -10,9 +11,7 @@ const sort = require("./sort");
 const getData = () => {
     axios.get("https://api.covid19india.org/data.json")
         .then(function (response) {
-            // Function which runs on Resolve
             response.data.statewise.forEach(state => {
-                // console.log(state);
                 let cardMain = document.querySelector("#card-list");
                 let cardStateData = `       
                     <div id="cardStateData" class="card-list" style="width: 18rem;">
@@ -20,20 +19,18 @@ const getData = () => {
                             ${state.state}
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item activeCases">Active: ${state.active}</li>
-                            <li class="list-group-item recovered">Recovered: ${state.recovered}</li>
-                            <li class="list-group-item deaths">Deaths: ${state.deaths}</li>
-                            <li class="list-group-item totalCases">Total: ${state.confirmed}</li>
-                            <li class="list-group-item lastUpdated">Updated: ${state.lastupdatedtime}</li>
+                            <li class="list-group-item activeCases">Active: ${HRNumbers.toHumanString(state.active)}</li>
+                            <li class="list-group-item recovered">Recovered: ${HRNumbers.toHumanString(state.recovered)}</li>
+                            <li class="list-group-item deaths">Deaths: ${HRNumbers.toHumanString(state.deaths)}</li>
+                            <li class="list-group-item totalCases">Total: ${HRNumbers.toHumanString(state.confirmed)}</li>
+                            <li class="list-group-item lastUpdated">Updated: ${state.lastupdatedtime.slice(0,10)}</li>
                         </ul>
                     </div>`
 
                 cardMain.innerHTML += cardStateData;
             });
-            // console.log(response.data.statewise);  
         })
         .catch(function (error) {
-            // Function which runs on Reject 
             console.log(error);
         })
         .then(function () {

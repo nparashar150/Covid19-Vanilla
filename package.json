@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
     "browserify": "^17.0.0",
+    "human-readable-numbers": "^0.9.5",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "save-dev": "^0.0.1-security"

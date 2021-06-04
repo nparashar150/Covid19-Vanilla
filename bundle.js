@@ -3,6 +3,7 @@ const $ = require("jquery");
 const axios = require("axios").default;
 const moment = require("moment");
 const date = new Date();
+const HRNumbers = require("human-readable-numbers");
 console.log("Today is " + moment(date).format("LL"));
 console.log("Main.js --> attached");
 const search = require("./search");
@@ -11,9 +12,7 @@ const sort = require("./sort");
 const getData = () => {
     axios.get("https://api.covid19india.org/data.json")
         .then(function (response) {
-            // Function which runs on Resolve
             response.data.statewise.forEach(state => {
-                // console.log(state);
                 let cardMain = document.querySelector("#card-list");
                 let cardStateData = `       
                     <div id="cardStateData" class="card-list" style="width: 18rem;">
@@ -21,20 +20,18 @@ const getData = () => {
                             ${state.state}
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item activeCases">Active: ${state.active}</li>
-                            <li class="list-group-item recovered">Recovered: ${state.recovered}</li>
-                            <li class="list-group-item deaths">Deaths: ${state.deaths}</li>
-                            <li class="list-group-item totalCases">Total: ${state.confirmed}</li>
-                            <li class="list-group-item lastUpdated">Updated: ${state.lastupdatedtime}</li>
+                            <li class="list-group-item activeCases">Active: ${HRNumbers.toHumanString(state.active)}</li>
+                            <li class="list-group-item recovered">Recovered: ${HRNumbers.toHumanString(state.recovered)}</li>
+                            <li class="list-group-item deaths">Deaths: ${HRNumbers.toHumanString(state.deaths)}</li>
+                            <li class="list-group-item totalCases">Total: ${HRNumbers.toHumanString(state.confirmed)}</li>
+                            <li class="list-group-item lastUpdated">Updated: ${state.lastupdatedtime.slice(0,10)}</li>
                         </ul>
                     </div>`
 
                 cardMain.innerHTML += cardStateData;
             });
-            // console.log(response.data.statewise);  
         })
         .catch(function (error) {
-            // Function which runs on Reject 
             console.log(error);
         })
         .then(function () {
@@ -44,7 +41,7 @@ const getData = () => {
 getData();
 search();
 sort();
-},{"./search":2,"./sort":3,"axios":4,"jquery":31,"moment":32}],2:[function(require,module,exports){
+},{"./search":2,"./sort":3,"axios":4,"human-readable-numbers":31,"jquery":32,"moment":33}],2:[function(require,module,exports){
 console.log("Search.js --> attached");
 const search = () => {
     document.querySelector("#searchState").addEventListener("input", function () {
@@ -952,7 +949,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this)}).call(this,require('_process'))
-},{"./adapters/http":5,"./adapters/xhr":5,"./helpers/normalizeHeaderName":27,"./utils":30,"_process":33}],20:[function(require,module,exports){
+},{"./adapters/http":5,"./adapters/xhr":5,"./helpers/normalizeHeaderName":27,"./utils":30,"_process":34}],20:[function(require,module,exports){
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -1659,6 +1656,10 @@ module.exports = {
 };
 
 },{"./helpers/bind":20}],31:[function(require,module,exports){
+/*! Human readable numbers - v0.9 - 2018; Licensed MIT */
+(function(){var PREFIXES={24:"Y",21:"Z",18:"E",15:"P",12:"T",9:"G",6:"M",3:"k",0:"","-3":"m","-6":"µ","-9":"n","-12":"p","-15":"f","-18":"a","-21":"z","-24":"y"};function getExponent(n){if(n===0){return 0}return Math.floor(Math.log10(Math.abs(n)))}function precise(n){return Number.parseFloat(n.toPrecision(3))}function toHumanString(sn){var n=precise(Number.parseFloat(sn));var e=Math.max(Math.min(3*Math.floor(getExponent(n)/3),24),-24);return precise(n/Math.pow(10,e)).toString()+PREFIXES[e]}var HRNumbers={toHumanString:toHumanString};if(typeof define=="function"&&define.amd){define([],function(){return HRNumbers})}else if(typeof exports!="undefined"){exports=module.exports=HRNumbers}else{this.HRNumbers=HRNumbers}}).call(this);
+
+},{}],32:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
@@ -12541,7 +12542,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 //! moment.js
 //! version : 2.29.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -18213,7 +18214,7 @@ return jQuery;
 
 })));
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
